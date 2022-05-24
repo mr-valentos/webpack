@@ -10,9 +10,22 @@ const fancyFunc = () => {
   
 const [a, b] = fancyFunc();
 
+const data = [
+  ['a1', 'a2'],
+  ['b1','b2']
+]
+
+
 function App() {
-    const [state, setState] = useState("CLICK ME");
-    return <button onClick={() => setState("CLICKED")}>{state}</button>;
+  const table = data.map((elem, index) => 
+  <tr key={index}>{elem.map((item)=> <td>{item}</td>)}</tr>
+ )
+    return (
+    <table>
+      <tbody>
+        {table}
+      </tbody>
+    </table>)
 }
 
 render(<App />, document.getElementById("root"));
